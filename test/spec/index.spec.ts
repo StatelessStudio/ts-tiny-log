@@ -14,7 +14,7 @@ describe('index', () => {
 	});
 
 	it('exports a log function', () => {
-		expect(index.log()).toBeDefined();
+		expect(index.log).toBeDefined();
 	});
 
 	it('exports a setLog function', () => {
