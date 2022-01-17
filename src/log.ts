@@ -48,7 +48,7 @@ export class Log implements LogContract {
 		this.setLevel(this.settings.level);
 
 		for (let i = 0; i < nLogLevels; i++) {
-			this.setWriter(i, this.writers[i]);
+			this.setWriter(i, i === 0 ? this.sink : this.settings.standardOut);
 		}
 	}
 
