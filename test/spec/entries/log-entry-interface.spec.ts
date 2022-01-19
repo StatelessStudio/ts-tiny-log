@@ -12,9 +12,9 @@ describe('entries/LogEntryInterface', () => {
 
 	it('has a data property', () => {
 		const entry: Partial<LogEntryInterface> = {
-			data: 'test'
+			data: ['test']
 		};
 
-		expect(entry.data).toEqual('test');
+		expect(entry.data).toEqual(['test']);
 	});
 });

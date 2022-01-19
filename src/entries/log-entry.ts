@@ -12,7 +12,7 @@ export class LogEntry implements LogEntryInterface {
 	public level: LogLevel;
 
 	// Data arguments
-	public data;
+	public data: any[];
 
 	/**
 	 * Create a new LogEntry
