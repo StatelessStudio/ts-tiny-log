@@ -1,6 +1,5 @@
 import { LogLevel } from '../src/levels';
-import { log } from '../src/log';
-import './log';
+import { log } from './log';
 
 log.fatal('Abort!');
 log.error('An error!', new Error('Broken!'));

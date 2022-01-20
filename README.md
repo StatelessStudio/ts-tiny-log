@@ -5,7 +5,7 @@
 `npm i ts-tiny-log`
 
 ```typescript
-import { log } from 'ts-tiny-log';
+import { log } from 'ts-tiny-log/default';
 
 log.info('Test!');
 ```
@@ -15,7 +15,7 @@ log.info('Test!');
 There are 5 log-levels, `fatal`, `error`, `warn`, `info`, and `debug`. Each one accepts any number of arguments, and also accepts any type of variable, object, array, error, etc.
 
 ```typescript
-import { log } from 'ts-tiny-log';
+import { log } from 'ts-tiny-log/default';
 
 // info level with a string variable
 log.info('Hello, ', env.APP_TITLE);
@@ -34,12 +34,13 @@ catch (e) {
 
 ## Settings
 
-Configure the log by passing a new instance to `setLog()`
+Configure the log by creating a new instance. Export this so you can import your custom logger in your application.
 
+`src/log.ts`
 ```typescript
-import { Log, setLog } from 'ts-tiny-log';
+import { Log } from 'ts-tiny-log';
 
-setLog(new Log({
+export const log: Log = new Log({
 	shouldWriteTimestamp: false
 }));
 ```
@@ -52,10 +53,10 @@ Set the level that will be logged. Any level below this will also be logged. For
 **Example:**
 
 ```typescript
-import { Log, log, setLog } from 'ts-tiny-log';
+import { Log } from 'ts-tiny-log';
 import { LogLevel } from 'ts-tiny-log/levels';
 
-setLog(new Log({
+export const log: Log = new Log({
 	// Set the level to warn
 	level: LogLevel.warn
 }));
@@ -83,10 +84,11 @@ Turn on/off timestamp column per log entry
 
 **Example:**
 
+`src/log.ts`
 ```typescript
-import { Log, log, setLog } from '../src';
+import { Log } from '../src';
 
-setLog(new Log({
+export const log: Log = new Log({
 	// Don't write timestamps
 	shouldWriteTimestamp: false
 }));
@@ -111,9 +113,9 @@ Turn on/off log-level column per log entry
 **Example:**
 
 ```typescript
-import { Log, log, setLog } from '../src';
+import { Log } from '../src';
 
-setLog(new Log({
+export const log: Log = new Log({
 	// Don't write log-level
 	shouldWriteLogLevel: false
 }));
@@ -139,9 +141,9 @@ Determines how metadata columns (such as log-level and timestamp) are displayed.
 **Example:**
 
 ```typescript
-import { Log, log, setLog } from '../src';
+import { Log } from '../src';
 
-setLog(new Log({
+export const log: Log = new Log({
 	// Use square brackets for columns
 	metadataFormat: str => `[${str.trim().toUpperCase()}]`
 }));
@@ -165,7 +167,7 @@ Stream log output to a custom function.
 In this example, output will be streamed to a file via a custom `streamToFile()` function:
 
 ```typescript
-import { Log, log, setLog } from '../src';
+import { Log } from '../src';
 import { appendFileSync } from 'fs';
 
 /**
@@ -178,7 +180,7 @@ function streamToFile(...data: any[]): void {
 }
 
 // Set our custom Log
-setLog(new Log({
+export const log: Log = new Log({
 	standardOut: streamToFile,
 	standardError: streamToFile,
 }));
