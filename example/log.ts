@@ -1,5 +1,5 @@
-import { Log, setLog } from '../src';
+import { Log } from '../src';
 
-setLog(new Log({
+export const log: Log = new Log({
 	// Add log settings here!
-}));
+});

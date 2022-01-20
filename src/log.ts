@@ -212,10 +212,3 @@ export class Log implements LogContract {
 		return line;
 	}
 }
-
-/**
- * Internal log
- */
-let log: Log = new Log();
-export { log };
-export const setLog = (l: Log) => log = l;

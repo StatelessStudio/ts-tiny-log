@@ -1,5 +1,5 @@
 import { LogLevel } from '../../src/levels';
-import { Log, log, setLog } from '../../src/log';
+import { Log } from '../../src/log';
 import { captureLog } from '../utils/log/capture-log';
 import { testLogLevelMethod } from '../utils/log/test-log-level-method';
 import { timestampRegex } from '../utils/regex/timestamp';
@@ -9,17 +9,6 @@ describe('Log', () => {
 		const log: Log = new Log();
 
 		expect(log).toBeDefined();
-	});
-
-	it('exposes the log instance', () => {
-		const oldLog = log;
-		const newLog = new Log();
-
-		setLog(newLog);
-		expect(log).toBe(newLog);
-
-		setLog(oldLog);
-		expect(log).toBe(oldLog);
 	});
 
 	it('can accept settings', () => {

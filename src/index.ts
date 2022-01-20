@@ -1,2 +1,2 @@
-export { Log, log, setLog } from './log';
+export { Log } from './log';
 export { LogContract } from './contract';

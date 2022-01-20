@@ -12,13 +12,4 @@ describe('index', () => {
 
 		expect(something).toBeDefined();
 	});
-
-	it('exports a log function', () => {
-		expect(index.log).toBeDefined();
-	});
-
-	it('exports a setLog function', () => {
-		const log = new index.Log();
-		expect(index.setLog(log)).toBe(log);
-	});
 });
