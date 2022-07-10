@@ -2,7 +2,7 @@
 	"name": "ts-tiny-log",
 	"version": "1.0.3",
 	"ts-project-version": "2.2.0",
-	"description": "typescript-template",
+	"description": "Tiny TypeScript Logger",
 	"private": "true",
 	"scripts": {
 		"start": "npm run dev",
@@ -44,14 +44,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/StatelessStudio/typescript-template.git"
+		"url": "git+https://github.com/StatelessStudio/ts-tiny-log.git"
 	},
 	"author": "stateless-studio",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/StatelessStudio/typescript-template/issues"
+		"url": "https://github.com/StatelessStudio/ts-tiny-log/issues"
 	},
-	"homepage": "https://github.com/StatelessStudio/typescript-template#readme",
+	"homepage": "https://github.com/StatelessStudio/ts-tiny-log#readme",
 	"keywords": [
 	]
 }

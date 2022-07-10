@@ -1,1 +1,1 @@
-# TypeScript Template Migration Guide
+# ts-tiny-log Migration Guide
