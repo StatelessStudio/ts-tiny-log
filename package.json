@@ -53,5 +53,15 @@
 	},
 	"homepage": "https://github.com/StatelessStudio/ts-tiny-log#readme",
 	"keywords": [
+		"typescript",
+		"log",
+		"logger",
+		"logging",
+		"syslog",
+		"error",
+		"warn",
+		"info",
+		"debug",
+		"console"
 	]
 }
