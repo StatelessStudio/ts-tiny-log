@@ -1,6 +1,6 @@
 {
 	"name": "ts-tiny-log",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"ts-project-version": "1.2.4",
 	"private": "true",
 	"scripts": {
