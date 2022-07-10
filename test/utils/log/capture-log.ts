@@ -12,7 +12,7 @@ import { LogSettingsInterface } from '../../../src/settings';
  * 	logged string
  */
 export function captureLog(
-	toLog: string,
+	toLog: any,
 	level: LogLevel = LogLevel.info,
 	options: Partial<LogSettingsInterface> = {}
 ): null|string {
