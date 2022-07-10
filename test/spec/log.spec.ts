@@ -114,4 +114,19 @@ describe('Log', () => {
 		expect(columns[1]).toBe('fatal');
 		expect(columns[2]).toBe('test');
 	});
+
+	it('can display error strings', () => {
+		let error: Error;
+
+		try {
+			throw new Error('This is a test error');
+		}
+		catch (e) {
+			error = e;
+		}
+
+		const captured = captureLog(error);
+
+		expect(captured).toContain('This is a test error');
+	});
 });

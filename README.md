@@ -153,7 +153,7 @@ log.info('uppercase with square brackets');
 
 Output:
 ```
-[2022-01-17T13:21:15.224Z] [INFO] with square brackets
+[2022-01-17T13:21:15.224Z] [INFO] uppercase with square brackets
 ```
 
 ---

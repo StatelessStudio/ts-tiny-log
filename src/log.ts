@@ -161,6 +161,8 @@ export class Log implements LogContract {
 	 * @returns Returns the transformed LogEntry
 	 */
 	protected transform(line: LogEntry): LogEntry {
+		line.data = this.stringifyAll(line.data);
+
 		if (this.settings.shouldWriteLogLevel) {
 			line = this.prependLogLevel(line);
 		}
@@ -210,5 +212,60 @@ export class Log implements LogContract {
 		line.data.unshift(this.settings.metadataFormat(line.getTimestamp()));
 
 		return line;
+	}
+
+	/**
+	 * Stringify all log arguments
+	 *
+	 * @param data Log arguments
+	 * @returns Stringified log arguments
+	 */
+	protected stringifyAll(data: any[]): any[] {
+		for (let i = 0; i < data.length; i++) {
+			data[i] = this.stringifyItem(data[i]);
+		}
+
+		return data;
+	}
+
+	/**
+	 * Stringify a single log argument
+	 *
+	 * @param data Log argument
+	 * @returns Returns stringified log argument
+	 */
+	protected stringifyItem(data: any): any {
+		if (data instanceof Error) {
+			data = this.stringifyError(data);
+		}
+
+		return data;
+	}
+
+	/**
+	 * Stringify a javascript object
+	 *
+	 * @param obj Object
+	 * @returns Stringified object
+	 */
+	protected stringifyObject(obj: any): string {
+		return JSON.stringify(obj, null, '\t');
+	}
+
+	/**
+	 * Stringify an Error instance
+	 *
+	 * @param error Error
+	 * @returns Stringified Error information
+	 */
+	protected stringifyError(error) {
+		let output = error.toString() + '\n' + error.stack;
+
+		if ('context' in error) {
+			output += '\n[Error Context]\n' +
+				this.stringifyObject(error['context']);
+		}
+
+		return output;
 	}
 }
