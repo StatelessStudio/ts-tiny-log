@@ -1,5 +1,11 @@
 # ts-tiny-log
 
+## [1.1.0]
+
+### Additions
+
+### Fixes
+
 ## [1.0.3]
 
 ### Fixes
