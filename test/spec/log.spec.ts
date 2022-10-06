@@ -101,7 +101,7 @@ describe('Log', () => {
 		expect(columns[1]).toBe('test');
 	});
 
-	fit('can prepend the thread id', () => {
+	it('can prepend the thread id', () => {
 		const captured = captureLog('test', LogLevel.fatal, {
 			shouldWriteLogLevel: false,
 			shouldWriteTimestamp: false,
@@ -114,7 +114,7 @@ describe('Log', () => {
 		expect(columns[0]).toEqual('main\t');
 	});
 
-	fit('can prepend a custom thread id', () => {
+	it('can prepend a custom thread id', () => {
 		const captured = captureLog('test', LogLevel.fatal, {
 			shouldWriteLogLevel: false,
 			shouldWriteTimestamp: false,
