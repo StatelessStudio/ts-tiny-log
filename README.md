@@ -130,6 +130,33 @@ Output:
 
 ---
 
+### shouldWriteThreadId & threadId
+
+**Description:**
+Enable a threadId column for each log entry. Use the optional `threadId` option if you would like to specify a custom thread id, otherwise the threadId from node worker_threads is used.
+
+**Default Value:** `false`
+
+**Example:**
+
+```typescript
+import { Log } from '../src';
+
+export const log: Log = new Log({
+	// Add thread id
+	shouldWriteThreadId: true,
+});
+
+log.info('with thread id');
+```
+
+Output:
+```
+2022-01-17T13:16:50.157Z | info  | main	| with thread id
+```
+
+---
+
 ### metadataFormat
 Determines how metadata columns (such as log-level and timestamp) are displayed.
 

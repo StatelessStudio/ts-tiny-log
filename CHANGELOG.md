@@ -3,6 +3,7 @@
 ## [1.1.0]
 
 ### Additions
+- [Issue #5] Add options for thread id column
 
 ### Fixes
 

@@ -14,6 +14,10 @@ export interface LogSettingsInterface {
 	// Should the log level be prepended to the line?
 	shouldWriteLogLevel: boolean;
 
+	// Should the thread ID be prepended to the line?
+	shouldWriteThreadId?: boolean;
+	threadId?: number | string;
+
 	// Format of metadata that will be prepended to the line
 	metadataFormat: (string) => string;
 
