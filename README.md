@@ -42,7 +42,7 @@ import { Log } from 'ts-tiny-log';
 
 export const log: Log = new Log({
 	shouldWriteTimestamp: false
-}));
+});
 ```
 
 ### level
@@ -59,7 +59,7 @@ import { LogLevel } from 'ts-tiny-log/levels';
 export const log: Log = new Log({
 	// Set the level to warn
 	level: LogLevel.warn
-}));
+});
 
 log.fatal('will be displayed');
 log.error('will be displayed');
@@ -91,7 +91,7 @@ import { Log } from '../src';
 export const log: Log = new Log({
 	// Don't write timestamps
 	shouldWriteTimestamp: false
-}));
+});
 
 log.info('without timestamps');
 ```
@@ -118,7 +118,7 @@ import { Log } from '../src';
 export const log: Log = new Log({
 	// Don't write log-level
 	shouldWriteLogLevel: false
-}));
+});
 
 log.info('without log-level');
 ```
@@ -126,6 +126,33 @@ log.info('without log-level');
 Output:
 ```
 2022-01-17T13:16:50.157Z | without log-level
+```
+
+---
+
+### shouldWriteThreadId & threadId
+
+**Description:**
+Enable a threadId column for each log entry. Use the optional `threadId` option if you would like to specify a custom thread id, otherwise the threadId from node worker_threads is used.
+
+**Default Value:** `false`
+
+**Example:**
+
+```typescript
+import { Log } from '../src';
+
+export const log: Log = new Log({
+	// Add thread id
+	shouldWriteThreadId: true,
+});
+
+log.info('with thread id');
+```
+
+Output:
+```
+2022-01-17T13:16:50.157Z | info  | main	| with thread id
 ```
 
 ---
@@ -146,7 +173,7 @@ import { Log } from '../src';
 export const log: Log = new Log({
 	// Use square brackets for columns
 	metadataFormat: str => `[${str.trim().toUpperCase()}]`
-}));
+});
 
 log.info('uppercase with square brackets');
 ```
@@ -183,7 +210,7 @@ function streamToFile(...data: any[]): void {
 export const log: Log = new Log({
 	standardOut: streamToFile,
 	standardError: streamToFile,
-}));
+});
 
 log.info('with custom output stream');
 ```

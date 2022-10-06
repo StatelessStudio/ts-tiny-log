@@ -163,6 +163,10 @@ export class Log implements LogContract {
 	protected transform(line: LogEntry): LogEntry {
 		line.data = this.stringifyAll(line.data);
 
+		if (this.settings.shouldWriteThreadId) {
+			line = this.prependThreadId(line);
+		}
+
 		if (this.settings.shouldWriteLogLevel) {
 			line = this.prependLogLevel(line);
 		}
@@ -181,6 +185,22 @@ export class Log implements LogContract {
 	 */
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	protected sink(...data): void {
+	}
+
+	/**
+	 * Mutator - Prepend the thread id to the log entry
+	 *
+	 * @param line
+	 * @returns line
+	 */
+	protected prependThreadId(line: LogEntry): LogEntry {
+		const tid = this.settings.threadId;
+
+		line.data.unshift(this.settings.metadataFormat(
+			tid === 0 ? 'main\t' : (tid + '\t')
+		));
+
+		return line;
 	}
 
 	/**

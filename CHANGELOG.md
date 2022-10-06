@@ -1,5 +1,13 @@
 # ts-tiny-log
 
+## [1.1.0]
+
+### Additions
+- [Issue #5] Add options for thread id column
+
+### Fixes
+- [Issue #6] Readme examples contain extra closing parenthesis
+
 ## [1.0.3]
 
 ### Fixes
