@@ -3,6 +3,7 @@
 ## [1.1.1]
 
 ### Fixes
+- [Issue #8] Thread ID column offset when open as a file
 
 ## [1.1.0]
 
