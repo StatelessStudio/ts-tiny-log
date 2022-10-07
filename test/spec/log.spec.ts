@@ -128,6 +128,20 @@ describe('Log', () => {
 		expect(columns[0]).toEqual('1234\t');
 	});
 
+	it('can pad thread ids so columns line up', () => {
+		const captured = captureLog('test', LogLevel.fatal, {
+			shouldWriteLogLevel: false,
+			shouldWriteTimestamp: false,
+			shouldWriteThreadId: true,
+			threadId: 1,
+			metadataFormat: str => `${str} |`,
+		});
+
+		const columns = captured.split(' |');
+
+		expect(columns[0]).toEqual('   1\t');
+	});
+
 	it('can prepend the timestamp and the level', () => {
 		const captured = captureLog('test', LogLevel.fatal, {
 			shouldWriteLogLevel: true,
