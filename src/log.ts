@@ -195,9 +195,14 @@ export class Log implements LogContract {
 	 */
 	protected prependThreadId(line: LogEntry): LogEntry {
 		const tid = this.settings.threadId;
+		const padding =
+			tid < 10 ? '   ' :
+				tid < 100 ? '  ' :
+					tid < 1000 ? ' ' :
+						'';
 
 		line.data.unshift(this.settings.metadataFormat(
-			tid === 0 ? 'main\t' : (tid + '\t')
+			tid === 0 ? 'main\t' : (padding + tid + '\t')
 		));
 
 		return line;
